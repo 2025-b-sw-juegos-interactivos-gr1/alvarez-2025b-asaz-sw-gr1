@@ -1,0 +1,104 @@
+================================================================================
+INSTRUCCIONES PARA DESCARGAR LOS SONIDOS DEL JUEGO
+================================================================================
+
+El juego necesita 4 archivos de sonido en formato MP3.
+Sigue estos pasos para descargarlos desde Freesound.org:
+
+--------------------------------------------------------------------------------
+PASO 1: CREAR CUENTA EN FREESOUND (si no tienes)
+--------------------------------------------------------------------------------
+1. Ve a https://freesound.org
+2. Haz clic en "Register" (arriba a la derecha)
+3. Completa el formulario y confirma tu email
+
+--------------------------------------------------------------------------------
+PASO 2: DESCARGAR LOS SONIDOS
+--------------------------------------------------------------------------------
+
+*** MÚSICA DE FONDO (ambient_music.mp3) ***
+Opción 1: https://freesound.org/people/Migfus20/sounds/560449/
+   - "Ambient Electronic Background Music"
+Opción 2: https://freesound.org/people/szegvari/sounds/523202/
+   - "Ambient Corporate Background"
+
+Instrucciones:
+1. Abre el enlace
+2. Haz clic en el botón "Download"
+3. Renombra el archivo descargado a: ambient_music.mp3
+4. Muévelo a esta carpeta (assets/sounds/)
+
+
+*** SONIDO DE PASOS (footsteps.mp3) ***
+Opción 1: https://freesound.org/people/florianreichelt/sounds/459977/
+   - "Footsteps on concrete"
+Opción 2: https://freesound.org/people/InspectorJ/sounds/336598/
+   - "Footsteps, Concrete"
+
+Instrucciones:
+1. Abre el enlace
+2. Haz clic en "Download"
+3. Renombra a: footsteps.mp3
+4. Muévelo a esta carpeta
+
+
+*** SONIDO DE RECOGER - BEEP (pickup_beep.mp3) ***
+Opción 1: https://freesound.org/people/Breviceps/sounds/447910/
+   - "Pickup Item"
+Opción 2: https://freesound.org/people/GameAudio/sounds/220206/
+   - "Positive Beep"
+Opción 3: https://freesound.org/people/Raclure/sounds/483598/
+   - "Beep Confirmation"
+
+Instrucciones:
+1. Abre el enlace
+2. Haz clic en "Download"
+3. Renombra a: pickup_beep.mp3
+4. Muévelo a esta carpeta
+
+
+*** SONIDO DE ÉXITO (success.mp3) ***
+Opción 1: https://freesound.org/people/grunz/sounds/109662/
+   - "Success Sound"
+Opción 2: https://freesound.org/people/Tuudurt/sounds/275104/
+   - "Level Complete"
+Opción 3: https://freesound.org/people/Mrthenoronha/sounds/519495/
+   - "Success Jingle"
+
+Instrucciones:
+1. Abre el enlace
+2. Haz clic en "Download"
+3. Renombra a: success.mp3
+4. Muévelo a esta carpeta
+
+--------------------------------------------------------------------------------
+PASO 3: VERIFICAR ARCHIVOS
+--------------------------------------------------------------------------------
+
+Al finalizar, debes tener estos 4 archivos en la carpeta assets/sounds/:
+
+✓ ambient_music.mp3   (música de fondo en loop)
+✓ footsteps.mp3       (sonido de pasos al caminar)
+✓ pickup_beep.mp3     (beep al recoger el servidor)
+✓ success.mp3         (sonido de victoria al entregar)
+
+--------------------------------------------------------------------------------
+ALTERNATIVA: USAR SONIDOS DE PIXABAY (sin registro)
+--------------------------------------------------------------------------------
+
+Si prefieres no registrarte en Freesound, puedes usar Pixabay:
+
+1. Ve a https://pixabay.com/sound-effects/
+2. Busca: "ambient music", "footsteps", "beep", "success"
+3. Descarga y renombra según los nombres indicados arriba
+
+--------------------------------------------------------------------------------
+NOTAS IMPORTANTES
+--------------------------------------------------------------------------------
+
+- Los sonidos deben estar en formato MP3
+- Los nombres de archivo deben ser EXACTAMENTE como se indica
+- La música de fondo se reproduce automáticamente al hacer clic o presionar una tecla
+- Si un sonido no carga, revisa la consola del navegador (F12) para ver errores
+
+================================================================================

@@ -1,0 +1,117 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background: #02040a;
+	color: #f8f8ff;
+	overflow: hidden;
+	position: relative;
+}
+
+#gameCanvas {
+	position: fixed;
+	inset: 0;
+	width: 100vw;
+	height: 100vh;
+	display: block;
+}
+
+.hud {
+	position: fixed;
+	inset: 1rem;
+	pointer-events: none;
+	display: none; /* Ocultar HUD HTML, ahora usamos Babylon.js GUI */
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.hud__panel {
+	background: rgba(3, 7, 21, 0.78);
+	border: 1px solid rgba(79, 186, 255, 0.5);
+	border-radius: 0.75rem;
+	padding: 1.5rem;
+	width: min(320px, 90vw);
+	backdrop-filter: blur(8px);
+	pointer-events: auto;
+}
+
+.hud__eyebrow {
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	font-size: 0.75rem;
+	color: #6fd6ff;
+	margin: 0 0 0.25rem;
+}
+
+.hud__title {
+	font-size: clamp(1.5rem, 2vw, 2rem);
+	margin: 0 0 1rem;
+}
+
+.hud__section {
+	margin-bottom: 1.25rem;
+}
+
+.hud__section h2 {
+	font-size: 0.95rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	margin: 0 0 0.5rem;
+	color: #8cd9ff;
+}
+
+.hud__section ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.hud__section li {
+	margin-bottom: 0.35rem;
+}
+
+.hud__feedback {
+	min-height: 1.5rem;
+	margin: 0.5rem 0 0;
+	color: #ffe083;
+	font-size: 0.95rem;
+	font-weight: 600;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.hud__feedback.is-visible {
+	opacity: 1;
+}
+
+kbd {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.5rem;
+	padding: 0.15rem 0.35rem;
+	margin-right: 0.2rem;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	border-radius: 0.25rem;
+	font-size: 0.8rem;
+	background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 600px) {
+	.hud {
+		inset: 0.75rem;
+	}
+
+	.hud__panel {
+		width: 100%;
+		padding: 1rem;
+	}
+}
