@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dj16771jgwsmy"]
+
+[ext_resource type="Texture2D" uid="uid://b52wf2l5sf1qw" path="res://assets/sprites/coche1.png" id="1_cskdv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n25ny"]
+size = Vector2(60, 100)
+
+[node name="PlayerVehicle" type="RigidBody2D" unique_id=1801783492]
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1302113250]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_n25ny")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=224764890]
+visible = false
+offset_left = -40.0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+color = Color(0.90588236, 0.29803923, 0.23529412, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=766138122]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_cskdv")

@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://3ij5fe527i7f"]
+
+[ext_resource type="PackedScene" uid="uid://dj16771jgwsmy" path="res://scenes/vehicles/vehicle.tscn" id="1_exxld"]
+[ext_resource type="Script" uid="uid://b8sexflueh6fw" path="res://scripts/vehicles/vehicle.gd" id="2_5fn2n"]
+[ext_resource type="AudioStream" uid="uid://ctyojembeu4ui" path="res://assets/audio/car_start.wav" id="3_4d1xd"]
+[ext_resource type="Script" uid="uid://c74k602jgpr62" path="res://scripts/player/pedestrian.gd" id="3_36pl1"]
+[ext_resource type="Texture2D" uid="uid://tkj15rye1ibx" path="res://assets/sprites/coche3.png" id="3_v4wsd"]
+[ext_resource type="Script" uid="uid://bd7tt3djg4x0t" path="res://scripts/player/player_state_machine.gd" id="4_36pl1"]
+[ext_resource type="Script" uid="uid://dsc05hfs4t0em" path="res://scripts/managers/dynamic_camera.gd" id="4_bebfr"]
+[ext_resource type="AudioStream" uid="uid://crmgu40n53tbs" path="res://assets/audio/car_iddle.wav" id="4_wmrn4"]
+[ext_resource type="Script" uid="uid://crchw727sxlop" path="res://scripts/managers/hud_manager.gd" id="5_esv8v"]
+[ext_resource type="Texture2D" uid="uid://eunomfbm164s" path="res://assets/sprites/personaje.png" id="7_0wxsa"]
+[ext_resource type="AudioStream" uid="uid://bcvr8apod72g8" path="res://assets/audio/background.mp3" id="9_25ngl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jj13"]
+size = Vector2(2000, 2000)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fn2n"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bebfr"]
+radius = 80.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esv8v"]
+size = Vector2(2400, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4wsd"]
+size = Vector2(2400, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wxsa"]
+size = Vector2(100, 2400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25ngl"]
+size = Vector2(100, 2400)
+
+[node name="MainGame" type="Node2D" unique_id=2111681043]
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1042615106]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1399689654]
+shape = SubResource("RectangleShape2D_2jj13")
+disabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=1346736066]
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+color = Color(0.40892798, 0.31508926, 0.18720502, 1)
+
+[node name="PlayerVehicle" parent="." unique_id=1801783492 groups=["vehicles"] instance=ExtResource("1_exxld")]
+gravity_scale = 0.0
+freeze = true
+script = ExtResource("2_5fn2n")
+
+[node name="SFX_Start" type="AudioStreamPlayer2D" parent="PlayerVehicle" unique_id=2057185880]
+stream = ExtResource("3_4d1xd")
+
+[node name="SFX_Engine" type="AudioStreamPlayer2D" parent="PlayerVehicle" unique_id=406706628]
+stream = ExtResource("4_wmrn4")
+
+[node name="ParkedVehicle" parent="." unique_id=850343038 groups=["vehicles"] instance=ExtResource("1_exxld")]
+position = Vector2(300, 200)
+gravity_scale = 0.0
+freeze = true
+script = ExtResource("2_5fn2n")
+
+[node name="Sprite2D" parent="ParkedVehicle" index="2" unique_id=766138122]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("3_v4wsd")
+
+[node name="SFX_Start" type="AudioStreamPlayer2D" parent="ParkedVehicle" unique_id=1715692004]
+stream = ExtResource("3_4d1xd")
+
+[node name="SFX_Engine" type="AudioStreamPlayer2D" parent="ParkedVehicle" unique_id=166443784]
+stream = ExtResource("4_wmrn4")
+volume_db = -5.0
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1897140023]
+
+[node name="SpeedLabel" type="Label" parent="HUD" unique_id=716605893 node_paths=PackedStringArray("player_manager")]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 65.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 24
+text = "0 km/h"
+script = ExtResource("5_esv8v")
+player_manager = NodePath("../../PlayerManager")
+
+[node name="PlayerManager" type="Node" parent="." unique_id=445046251 node_paths=PackedStringArray("pedestrian", "initial_vehicle")]
+script = ExtResource("4_36pl1")
+pedestrian = NodePath("../PlayerPedestrian")
+initial_vehicle = NodePath("../PlayerVehicle")
+
+[node name="PlayerPedestrian" type="CharacterBody2D" parent="." unique_id=251043912 node_paths=PackedStringArray("interaction_area")]
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("3_36pl1")
+interaction_area = NodePath("InteractionArea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPedestrian" unique_id=1874834433]
+shape = SubResource("CircleShape2D_5fn2n")
+
+[node name="ColorRect" type="ColorRect" parent="PlayerPedestrian" unique_id=263953543]
+visible = false
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 1, 0, 1)
+
+[node name="InteractionArea" type="Area2D" parent="PlayerPedestrian" unique_id=188804443]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPedestrian/InteractionArea" unique_id=2040003979]
+shape = SubResource("CircleShape2D_bebfr")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerPedestrian" unique_id=1660876917]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_0wxsa")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1287399007 node_paths=PackedStringArray("target") groups=["camera"]]
+script = ExtResource("4_bebfr")
+target = NodePath("../PlayerPedestrian")
+
+[node name="MapBorders" type="StaticBody2D" parent="." unique_id=679234969]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapBorders" unique_id=929451740]
+position = Vector2(0, -1050)
+shape = SubResource("RectangleShape2D_esv8v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MapBorders" unique_id=366327553]
+position = Vector2(0, 1050)
+shape = SubResource("RectangleShape2D_v4wsd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MapBorders" unique_id=890732877]
+position = Vector2(-1050, 0)
+shape = SubResource("RectangleShape2D_0wxsa")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MapBorders" unique_id=6122946]
+position = Vector2(1050, 0)
+shape = SubResource("RectangleShape2D_25ngl")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="." unique_id=1530049002]
+stream = ExtResource("9_25ngl")
+volume_db = -38.373
+autoplay = true
+
+[connection signal="state_changed" from="PlayerManager" to="Camera2D" method="_on_player_manager_state_changed"]
+
+[editable path="ParkedVehicle"]
