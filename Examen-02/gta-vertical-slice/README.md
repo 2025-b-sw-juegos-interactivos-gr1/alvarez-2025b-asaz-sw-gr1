@@ -4,9 +4,8 @@
 > **Escuela Politécnica Nacional (EPN)**  
 > **Desarrollado por:** Alejandro Alvarez
 
-![Banner](assets/screenshots/banner.png)
+![Banner](assets/screenshots/image.png)
 
-> **Nota:** Reemplaza esta imagen con una captura real del gameplay.
 
 ---
 
