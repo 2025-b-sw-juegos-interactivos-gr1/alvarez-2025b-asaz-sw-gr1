@@ -4,7 +4,7 @@
 > **Escuela Politécnica Nacional (EPN)**  
 > **Desarrollado por:** Alejandro Alvarez
 
-![Banner](assets/screenshots/image.png)
+![Banner](gta-vertical-slice/assets/screenshots/image.png)
 
 
 ---
