@@ -118,6 +118,25 @@ res://
 
 ---
 
+## 🚀 Ejecución del Proyecto
+
+Para ejecutar este proyecto, sigue estos pasos:
+
+1.  **Descargar Godot Engine:**  
+    Asegúrate de tener instalada una versión compatible de **Godot Engine 4.3** o superior. Puedes descargarlo desde la [página oficial de Godot](https://godotengine.org/download/).
+
+2.  **Importar el Proyecto:**
+    *   Abre Godot Engine.
+    *   En el gestor de proyectos, haz clic en el botón **"Importar"**.
+    *   Navega hasta la carpeta `gta-vertical-slice` (la que contiene el archivo `project.godot`) y selecciona el archivo `project.godot`.
+
+3.  **Ejecutar el Juego:**
+    *   Una vez que el proyecto esté cargado en el editor, puedes ejecutarlo de dos maneras:
+        *   Presionando la tecla **F5**.
+        *   Haciendo clic en el botón **"Ejecutar Escena Principal"** (icono de play) en la esquina superior derecha del editor.
+
+---
+
 ## 🚀 Próximos Pasos (Roadmap)
 
 * [x] Bloque 1: Arquitectura y State Machine
